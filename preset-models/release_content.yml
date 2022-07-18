@@ -1,0 +1,16 @@
+# This is the release content file.
+# It will be showed in the release.
+model_1:
+  title: openwrt for xiaomi ac2100
+  body:
+    - 小米AC2100 OpenWrt固件
+    - 版本：lienol openwrt源码，master分支
+    - 登陆IP 192.168.31.1，密码无
+    - 应用：ipv6支持组件、argon主题、定时重启、nat6助手等。
+model_2:
+  title: openwrt for newifi-d2
+  body:
+    - 斐讯K2P OpenWrt固件
+    - 版本：lienol openwrt源码，master分支
+    - 登陆IP 192.168.2.1，密码无
+    - 应用：ipv6支持组件、argon主题、定时重启、nat6助手等。
