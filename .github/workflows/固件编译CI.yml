@@ -48,6 +48,11 @@ on:
         required: false
         default: 'false'
         type: boolean
+        ssh:
+          description: '连接SSH'
+          required: false
+          default: 'false'
+          type: boolean
 env:
   TARGET_SE: preset-models/target_select.py
   RELEASE_CO: preset-models/release_content.yml
