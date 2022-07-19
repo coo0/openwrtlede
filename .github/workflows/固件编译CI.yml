@@ -89,6 +89,10 @@ jobs:
         run: |
           chmod +x $CLONE_SH
           $CLONE_SH
+      - name: 修改配置
+        run: |
+          [ ${{ github.event.inputs.cpu_overclock }} == true ] && sed -i '/322-mt7621-fix-cpu-clk-add-clkdev.patch/ s/#//' $MODIFY_SH
+          [ ${{ github.event.inputs.kernel_5_15 }} == true ] && sed -i '/KERNEL_PATCHVER:=5.15/ s/#//' $MODIFY_SH
           chmod +x $MODIFY_SH
           $MODIFY_SH
       - name: 升级feeds
@@ -96,12 +100,6 @@ jobs:
           ./scripts/feeds clean
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-      - name: 修改配置
-        run: |
-          [ ${{ github.event.inputs.cpu_overclock }} == true ] && sed -i '/322-mt7621-fix-cpu-clk-add-clkdev.patch/ s/#//' $MODIFY_SH
-          [ ${{ github.event.inputs.kernel_5_15 }} == true ] && sed -i '/KERNEL_PATCHVER:=5.15/ s/#//' $MODIFY_SH
-          chmod +x $MODIFY_SH
-          $MODIFY_SH
       - name: 生成.config文件
         run: |
           mv -f $CONFIG_PA ./.config
