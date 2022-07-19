@@ -89,8 +89,11 @@ jobs:
         run: |
           chmod +x $CLONE_SH
           $CLONE_SH
+          chmod +x $MODIFY_SH
+          $MODIFY_SH
       - name: 升级feeds
         run: |
+          ./scripts/feeds clean
           ./scripts/feeds update -a
           ./scripts/feeds install -a
       - name: 修改配置
